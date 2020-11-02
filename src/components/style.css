@@ -1,0 +1,10 @@
+.box{
+  color: red;
+  width: 200px;
+  height: 300px;
+  border: 1px solid darkblue;
+  background: url('../assets/img/s.jpg') repeat;
+}
+html, body {
+  font-size: 24px;
+}
