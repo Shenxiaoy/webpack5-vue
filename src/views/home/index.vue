@@ -1,13 +1,16 @@
 <template>
   <div>
     <HeaderNav></HeaderNav>
+    <HeroCards></HeroCards>
   </div>
 </template>
 
 <script>
-import HeaderNav from './components/headerNav'
+import HeaderNav from './components/headerNav.vue'
+import HeroCards from './components/heroCards'
+
 export default {
-  components: { HeaderNav }
+  components: { HeaderNav, HeroCards }
 }
 </script>
 
