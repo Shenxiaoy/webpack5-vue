@@ -90,7 +90,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.vue', '.ts'],
     alias: {
-      // 'common': ''
+      '@': path.resolve(__dirname, '../src')
     }
   },
   // 配置全局变量，不会被工程打包

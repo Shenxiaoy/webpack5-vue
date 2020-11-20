@@ -4,8 +4,11 @@
       <div class="header-left">
         <div v-for='(item, k) in 5'
              :key='k'
-             class="hero-item"><img :src="getTailorSize(chooseHero.left[k])"
-               alt="o"></div>
+             class="hero-item">
+          <img :src="getTailorSize(chooseHero.left[k])"
+               alt="">
+          <div class="hero-name">3333</div>
+        </div>
       </div>
       <div class="header-center">
         <div class="center-area"></div>
@@ -47,7 +50,7 @@ export default {
 }
 .header-wrap {
   width: 100%;
-  height: 80px;
+  height: 60px;
   min-width: 904px;
   background: url("https://chat.shenxiaoyu.cn/bg.gif") repeat;
   display: flex;
@@ -58,18 +61,31 @@ export default {
     width: 50%;
     min-width: 400px;
     display: flex;
+    padding: 0 10px;
     .hero-item {
       // width: 20%;
-      height: 80px;
+      height: 60px;
+      margin-left: 10px;
+      position: relative;
       img {
         display: inline-block;
         width: 100%;
         height: 100%;
-        transform: skew(20deg);
+        transform: skew(-20deg);
         cursor: pointer;
+        transition: all 1s;
+        border: 1px solid transparent;
       }
       img:hover {
-        border: 2px solid white;
+        border: 1px solid white;
+      }
+
+      .hero-name {
+        position: absolute;
+        bottom: 2px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 12px;
       }
     }
   }
@@ -77,7 +93,7 @@ export default {
     display: inline-block;
     width: 100%;
     height: 100%;
-    transform: skew(-20deg);
+    transform: skew(20deg);
   }
   .header-center {
     width: 150px;
@@ -86,10 +102,10 @@ export default {
     justify-content: center;
     align-items: center;
     .center-area {
-      width: 80px;
+      width: 60px;
       height: 100%;
       border-radius: 50%;
-      box-shadow: inset 1px -2px 5px crimson;
+      box-shadow: inset 1px -2px 5px rgba(163, 45, 68, 0.4);
       animation: spin 5s linear infinite;
       &::before,
       &::after {
