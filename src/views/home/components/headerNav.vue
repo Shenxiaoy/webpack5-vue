@@ -1,9 +1,21 @@
 <template>
   <div class="game-header">
     <div class="header-wrap">
-      <div class="header-left">ssss</div>
-      <div class="header-center"></div>
-      <div class="header-right">22</div>
+      <div class="header-left">
+        <div v-for='(item, k) in 5'
+             :key='k'
+             class="hero-item"><img :src="getTailorSize(chooseHero.left[k])"
+               alt="o"></div>
+      </div>
+      <div class="header-center">
+        <div class="center-area"></div>
+      </div>
+      <div class="header-right">
+        <div v-for='(item, k) in 5'
+             :key='k'
+             class="hero-item"><img :src="getTailorSize(chooseHero.right[k])"
+               alt="o"></div>
+      </div>
     </div>
   </div>
 </template>
@@ -12,31 +24,99 @@
 import './style.css'
 import './ss.scss'
 export default {
-  name: 'header-nav'
+  name: 'header-nav',
+  data () {
+    return {
+      chooseHero: {
+        left: ['https://chat.shenxiaoyu.cn/dashu.jpg', 'https://chat.shenxiaoyu.cn/fengxing.png', 'https://chat.shenxiaoyu.cn/guangfa.jpg', 'https://chat.shenxiaoyu.cn/heiniao.jpg', 'https://chat.shenxiaoyu.cn/houzi.jpg'],
+        right: ["https://chat.shenxiaoyu.cn/lianjin.png", "https://chat.shenxiaoyu.cn/najiahaiyao.jpg", "https://chat.shenxiaoyu.cn/quanneng.jpg", "https://chat.shenxiaoyu.cn/siwangxianzhi.jpg", "https://chat.shenxiaoyu.cn/ta.jpg"]
+      }
+    }
+  },
+  methods: {
+    getTailorSize (url) {
+      return `${url}?imageView2/1/w/400/h/350/q/75`
+    }
+  }
 }
 </script>
 
-<style lang='scss'>
+<style lang='scss' scoped>
 .game-header {
   width: 100%;
 }
 .header-wrap {
   width: 100%;
   height: 80px;
-  min-width: 800px;
-  background: saddlebrown;
+  min-width: 904px;
+  background: url("https://chat.shenxiaoyu.cn/bg.gif") repeat;
   display: flex;
   justify-content: space-between;
 
   .header-left,
   .header-right {
-    width: 40%;
-    min-width: 300px;
-    background: seagreen;
+    width: 50%;
+    min-width: 400px;
+    display: flex;
+    .hero-item {
+      // width: 20%;
+      height: 80px;
+      img {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        transform: skew(20deg);
+        cursor: pointer;
+      }
+      img:hover {
+        border: 2px solid white;
+      }
+    }
+  }
+  .header-left .hero-item img {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    transform: skew(-20deg);
   }
   .header-center {
-    width: 100px;
-    background: slateblue;
+    width: 150px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .center-area {
+      width: 80px;
+      height: 100%;
+      border-radius: 50%;
+      box-shadow: inset 1px -2px 5px crimson;
+      animation: spin 5s linear infinite;
+      &::before,
+      &::after {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        background: inherit;
+        border-radius: inherit;
+        box-shadow: inherit;
+        top: 0;
+        left: 0;
+      }
+
+      &::before {
+        filter: blur(5px);
+      }
+
+      &::after {
+        filter: blur(10px);
+      }
+    }
+  }
+}
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
   }
 }
 </style>
