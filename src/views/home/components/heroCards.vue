@@ -6,20 +6,17 @@
           <div>
             <div>
               <ButEffect @gologin='loginIn'></ButEffect>
-              <div class="ohter-login-type">
-                <div class="type-icon">
-                  <div class="icon-weixin"></div>
-                  <div>微信登录</div>
-                </div>
-                <div class="type-icon">
-                  <div class="icon-github"></div>
-                  <div>github登录</div>
-                </div>
-              </div>
+              <OhterLogin></OhterLogin>
             </div>
           </div>
         </RotateCard>
-        <RotateCard delayTime='0.8s'></RotateCard>
+        <RotateCard delayTime='0.8s'>
+          <div style='text-align: center; cursor: pointer'
+               @click="handlenote">
+            <p style='font-size: 24px'>笔记</p>
+            <div>好记性不如烂笔头</div>
+          </div>
+        </RotateCard>
         <RotateCard delayTime='1.1s'></RotateCard>
         <RotateCard delayTime='1.4s'></RotateCard>
       </div>
@@ -27,12 +24,19 @@
         <div class="power-hero">
           <div class="hero-name"
                v-for='(item, index) in 15'
-               :key='index'></div>
+               :key='index'>
+            <img alt=""
+                 src='https://chat.shenxiaoyu.cn/quanneng.jpg'
+                 @load='imgload'>
+          </div>
         </div>
         <div class="agile-hero">
           <div class="hero-name"
                v-for='(item, index) in 15'
-               :key='index'></div>
+               :key='index'>
+            <img src="https://chat.shenxiaoyu.cn/quanneng.jpg"
+                 alt="">
+          </div>
         </div>
         <div class="Intellectua-hero"></div>
       </div>
@@ -40,6 +44,9 @@
     <div class="hero-choose">
       <template v-if="curChoose.type === 'login'">
         <ChooseLogin></ChooseLogin>
+      </template>
+      <template v-else-if="curChoose.type === 'note'">
+        <ChooseNote></ChooseNote>
       </template>
       <template v-else>
         show-plant
@@ -52,8 +59,10 @@
 import RotateCard from '@/components/animation-effect/rotateCard'
 import ButEffect from '@/components/animation-effect/butEffect'
 import ChooseLogin from './choose-model/login'
+import OhterLogin from './choose-model/otherLogin'
+import ChooseNote from './choose-model/note'
 export default {
-  components: { RotateCard, ButEffect, ChooseLogin },
+  components: { RotateCard, ButEffect, ChooseLogin, OhterLogin, ChooseNote },
   data () {
     return {
       curChoose: {
@@ -64,6 +73,14 @@ export default {
   methods: {
     loginIn () {
       this.curChoose.type = 'login'
+    },
+    handlenote () {
+      this.curChoose = {
+        type: 'note'
+      }
+    },
+    imgload (e) {
+      // e.currentTarget.src = ''
     }
   }
 }
@@ -99,8 +116,12 @@ export default {
         width: 80px;
         height: 80px;
         margin: 12px 0 0 12px;
-        background-image: url("https://chat.shenxiaoyu.cn/fengxing.png");
-        background-size: cover;
+        // background-image: url("https://chat.shenxiaoyu.cn/fengxing.png");
+        // background-size: cover;
+        img {
+          width: 100%;
+          height: 100%;
+        }
         filter: grayscale(1);
         border-radius: 3px;
       }
@@ -122,27 +143,27 @@ export default {
   }
 }
 
-.icon-weixin {
-  cursor: pointer;
-  width: 30px;
-  height: 30px;
-  background-image: url("@/assets/img/weixin.svg");
-  background-size: cover;
-}
-.icon-github {
-  @extend .icon-weixin;
-  background-image: url("@/assets/img/github.svg");
-}
-.ohter-login-type {
-  font-size: 10px;
-  color: rgb(204, 199, 199);
-  display: flex;
-  justify-content: space-around;
-  margin-top: 24px;
-}
-.type-icon {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
+// .icon-weixin {
+//   cursor: pointer;
+//   width: 30px;
+//   height: 30px;
+//   background-image: url("@/assets/img/weixin.svg");
+//   background-size: cover;
+// }
+// .icon-github {
+//   @extend .icon-weixin;
+//   background-image: url("@/assets/img/github.svg");
+// }
+// .ohter-login-type {
+//   font-size: 10px;
+//   color: rgb(204, 199, 199);
+//   display: flex;
+//   justify-content: space-around;
+//   margin-top: 24px;
+// }
+// .type-icon {
+//   display: flex;
+//   align-items: center;
+//   flex-direction: column;
+// }
 </style>

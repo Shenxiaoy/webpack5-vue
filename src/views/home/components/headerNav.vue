@@ -2,22 +2,25 @@
   <div class="game-header">
     <div class="header-wrap">
       <div class="header-left">
-        <div v-for='(item, k) in 5'
+        <div v-for='(item, k) in chooseHero.left'
              :key='k'
              class="hero-item">
-          <img :src="getTailorSize(chooseHero.left[k])"
+          <img :src="getTailorSize(item.url)"
                alt="">
-          <div class="hero-name">3333</div>
+          <div class="hero-name">{{item.name}}</div>
         </div>
       </div>
       <div class="header-center">
         <div class="center-area"></div>
       </div>
       <div class="header-right">
-        <div v-for='(item, k) in 5'
+        <div v-for='(item, k) in chooseHero.right'
              :key='k'
-             class="hero-item"><img :src="getTailorSize(chooseHero.right[k])"
-               alt="o"></div>
+             class="hero-item">
+          <img :src="getTailorSize(item.url)"
+               alt="">
+          <div class="hero-name">{{item.name}}</div>
+        </div>
       </div>
     </div>
   </div>
@@ -31,8 +34,48 @@ export default {
   data () {
     return {
       chooseHero: {
-        left: ['https://chat.shenxiaoyu.cn/dashu.jpg', 'https://chat.shenxiaoyu.cn/fengxing.png', 'https://chat.shenxiaoyu.cn/guangfa.jpg', 'https://chat.shenxiaoyu.cn/heiniao.jpg', 'https://chat.shenxiaoyu.cn/houzi.jpg'],
-        right: ["https://chat.shenxiaoyu.cn/lianjin.png", "https://chat.shenxiaoyu.cn/najiahaiyao.jpg", "https://chat.shenxiaoyu.cn/quanneng.jpg", "https://chat.shenxiaoyu.cn/siwangxianzhi.jpg", "https://chat.shenxiaoyu.cn/ta.jpg"]
+        left: [
+          {
+            url: 'https://chat.shenxiaoyu.cn/dashu.jpg',
+            name: '大树精'
+          },
+          {
+            url: 'https://chat.shenxiaoyu.cn/fengxing.png',
+            name: '风行者'
+          },
+          {
+            url: 'https://chat.shenxiaoyu.cn/guangfa.jpg',
+            name: '光法'
+          },
+          {
+            url: 'https://chat.shenxiaoyu.cn/heiniao.jpg',
+            name: '黑鸟'
+          },
+          {
+            url: 'https://chat.shenxiaoyu.cn/houzi.jpg',
+            name: '猴子'
+          }],
+        right: [
+          {
+            url: "https://chat.shenxiaoyu.cn/lianjin.png",
+            name: '炼金'
+          },
+          {
+            url: "https://chat.shenxiaoyu.cn/najiahaiyao.jpg",
+            name: '小娜迦'
+          },
+          {
+            url: "https://chat.shenxiaoyu.cn/quanneng.jpg",
+            name: '蝙蝠'
+          },
+          {
+            url: "https://chat.shenxiaoyu.cn/siwangxianzhi.jpg",
+            name: '谜团'
+          },
+          {
+            url: "https://chat.shenxiaoyu.cn/ta.jpg",
+            name: 'TA'
+          }]
       }
     }
   },
