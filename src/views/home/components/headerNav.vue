@@ -61,7 +61,7 @@ export default {
     width: 50%;
     min-width: 400px;
     display: flex;
-    padding: 0 10px;
+    padding-right: 15px;
     .hero-item {
       // width: 20%;
       height: 60px;

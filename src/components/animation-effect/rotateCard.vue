@@ -1,11 +1,14 @@
 <template>
-  <div class="wrap">
+  <div class="card-wrap">
     <div class="box once-active"
          ref='box'
          :style="{'animation-delay': delayTime}">
-      <img class="front-face"
-           src="https://chat.shenxiaoyu.cn/guangfa.jpg"
-           alt="">
+      <div class="front-face">
+        <slot>
+          <img src="https://chat.shenxiaoyu.cn/guangfa.jpg"
+               alt="">
+        </slot>
+      </div>
       <div class="back-face"></div>
     </div>
   </div>
@@ -31,17 +34,17 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-.wrap {
+.card-wrap {
   // width: 300px;
   // height: 300px;
   // perspective: 1000px;
+  display: block;
   .box {
-    width: 200px;
-    height: 160px;
+    width: 180px;
+    height: 120px;
     transform-style: preserve-3d;
     position: relative;
     transition: transform 0.5s;
-    cursor: pointer;
     animation: cards 0.6s ease-out 1s forwards;
     .front-face,
     .back-face {
@@ -50,11 +53,14 @@ export default {
       position: absolute;
       left: 0;
       top: 0;
-      border-radius: 3px;
       backface-visibility: hidden;
     }
     .front-face {
       transform: rotateY(180deg);
+      img {
+        width: 100%;
+        height: 100%;
+      }
     }
     .back-face {
       background: repeating-linear-gradient(

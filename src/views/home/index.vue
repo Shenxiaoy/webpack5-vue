@@ -1,7 +1,7 @@
 <template>
   <div class="game-home">
     <HeaderNav></HeaderNav>
-    <Line2></Line2>
+    <!-- <Line2></Line2> -->
     <HeroCards></HeroCards>
   </div>
 </template>
@@ -17,13 +17,19 @@ export default {
 </script>
 
 <style>
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: rgb(15, 15, 15);
+}
 .game-home {
   width: 100%;
   height: 100%;
-}
-html,
-body {
-  margin: 0;
-  padding: 0;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-between; */
 }
 </style>
