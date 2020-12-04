@@ -21,6 +21,5 @@ export default {
 .content-list {
   width: 100%;
   height: 2px;
-  background: seagreen;
 }
 </style>

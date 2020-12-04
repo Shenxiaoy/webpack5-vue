@@ -1,7 +1,7 @@
 <template>
   <div class="game-home">
     <HeaderNav></HeaderNav>
-    <!-- <Line2></Line2> -->
+    <Line2></Line2>
     <HeroCards></HeroCards>
   </div>
 </template>

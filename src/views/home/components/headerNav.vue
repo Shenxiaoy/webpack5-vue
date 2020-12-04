@@ -37,7 +37,7 @@ export default {
         left: [
           {
             url: 'https://chat.shenxiaoyu.cn/dashu.jpg',
-            name: '大树精'
+            name: '大树精的'
           },
           {
             url: 'https://chat.shenxiaoyu.cn/fengxing.png',
@@ -92,7 +92,8 @@ export default {
   width: 100%;
 }
 .header-wrap {
-  width: 100%;
+  width: 1100px;
+  margin: 0 auto;
   height: 60px;
   min-width: 904px;
   background: url("https://chat.shenxiaoyu.cn/bg.gif") repeat;
@@ -104,7 +105,6 @@ export default {
     width: 50%;
     min-width: 400px;
     display: flex;
-    padding-right: 15px;
     .hero-item {
       // width: 20%;
       height: 60px;
@@ -128,7 +128,8 @@ export default {
         bottom: 2px;
         left: 50%;
         transform: translateX(-50%);
-        font-size: 12px;
+        font-size: 10px;
+        white-space: nowrap;
       }
     }
   }

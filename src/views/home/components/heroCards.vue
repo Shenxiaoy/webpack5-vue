@@ -115,10 +115,12 @@ export default {
       .choose-note {
         text-align: center;
         cursor: pointer;
+        -webkit-text-stroke: 1px rgb(99, 94, 94);
+        color: black;
+        transition: all ease-out 0.5s;
         &:hover {
-          -webkit-text-stroke: 1px rgb(99, 94, 94);
-          color: black;
-          transition: all ease-out 0.8s;
+          color: white;
+          -webkit-text-stroke: 0 white;
         }
       }
     }
