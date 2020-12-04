@@ -10,11 +10,11 @@ const prodConfig = merge(baseConfig, {
   plugins: [
     new CleanWebpackPlugin(),
     new ModuleFederationPlugin({
-      filename: 'test.js',
-      name: 'app1',
+      filename: 'commont.js',
+      name: 'bsadmin',
       // library: {type: 'var', name: 'app1'},
       exposes: {
-        './exam': path.resolve(__dirname, '../src/components/test.js')
+        './commont': path.resolve(__dirname, '../src/components/test.js')
       },
       shared: {
         vue: {

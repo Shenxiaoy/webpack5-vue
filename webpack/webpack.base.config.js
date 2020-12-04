@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 // const ESLintPlugin = require('eslint-webpack-plugin')
-
+const { ModuleFederationPlugin } = require('webpack').container
 const isDeveopment = process.env.NODE_ENV === 'development'
 // const eslintConfig = {
 //   formatter: require('eslint-friendly-formatter'),
@@ -85,7 +85,23 @@ module.exports = {
         collapseWhitespace: true // 去掉空格
       }
     }),
-    new MiniCssExtractPlugin()
+    new MiniCssExtractPlugin(),
+    // new ModuleFederationPlugin({
+    //   filename: 'commont.js',
+    //   name: 'bsadmin',
+    //   // library: { type: 'var', name: 'bsadmin' },
+    //   exposes: {
+    //     './commont': path.resolve(__dirname, '../src/components/test.js')
+    //   },
+    //   // remotes: {
+    //   //   bsadmin: 'bsadmin@http://localhost:8080/commont.js'
+    //   // },
+    //   shared: {
+    //     vue: {
+    //       singleton: true
+    //     }
+    //   }
+    // })
   ],
   resolve: {
     extensions: ['.js', '.vue', '.ts'],

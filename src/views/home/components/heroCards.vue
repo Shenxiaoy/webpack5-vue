@@ -11,7 +11,7 @@
           </div>
         </RotateCard>
         <RotateCard delayTime='0.8s'>
-          <div style='text-align: center; cursor: pointer'
+          <div class='choose-note'
                @click="handlenote">
             <p style='font-size: 24px'>笔记</p>
             <div>好记性不如烂笔头</div>
@@ -20,13 +20,14 @@
         <RotateCard delayTime='1.1s'></RotateCard>
         <RotateCard delayTime='1.4s'></RotateCard>
       </div>
+
       <div>
         <div class="power-hero">
           <div class="hero-name"
                v-for='(item, index) in 15'
                :key='index'>
             <img alt=""
-                 src='https://chat.shenxiaoyu.cn/quanneng.jpg'
+                 :src='bgPlantImg'
                  @load='imgload'>
           </div>
         </div>
@@ -34,12 +35,13 @@
           <div class="hero-name"
                v-for='(item, index) in 15'
                :key='index'>
-            <img src="https://chat.shenxiaoyu.cn/quanneng.jpg"
+            <img :src="bgPlantImg"
                  alt="">
           </div>
         </div>
         <div class="Intellectua-hero"></div>
       </div>
+
     </div>
     <div class="hero-choose">
       <template v-if="curChoose.type === 'login'">
@@ -61,13 +63,16 @@ import ButEffect from '@/components/animation-effect/butEffect'
 import ChooseLogin from './choose-model/login'
 import OhterLogin from './choose-model/otherLogin'
 import ChooseNote from './choose-model/note'
+
+import bgPlantImg from '@/assets/img/bg.jpg'
 export default {
   components: { RotateCard, ButEffect, ChooseLogin, OhterLogin, ChooseNote },
   data () {
     return {
       curChoose: {
         type: 'show-plant'
-      }
+      },
+      bgPlantImg
     }
   },
   methods: {
@@ -80,7 +85,7 @@ export default {
       }
     },
     imgload (e) {
-      // e.currentTarget.src = ''
+      // e.currentTarget.src = 'https://image.shenxiaoyu.cn/FlXaB976CP-5y2N88DVd99bI02AP'
     }
   }
 }
@@ -105,6 +110,16 @@ export default {
       display: flex;
       & > div {
         margin-left: 24px;
+      }
+
+      .choose-note {
+        text-align: center;
+        cursor: pointer;
+        &:hover {
+          -webkit-text-stroke: 1px rgb(99, 94, 94);
+          color: black;
+          transition: all ease-out 0.8s;
+        }
       }
     }
     .power-hero {
