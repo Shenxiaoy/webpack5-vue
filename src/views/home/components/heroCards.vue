@@ -51,7 +51,7 @@
         <ChooseNote></ChooseNote>
       </template>
       <template v-else>
-        show-plant
+        show-plant-test
       </template>
     </div>
   </div>

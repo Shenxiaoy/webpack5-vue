@@ -1,0 +1,1 @@
+(self.webpackChunkwebpack5=self.webpackChunkwebpack5||[]).push([[382],{382:(e,u,t)=>{"use strict";t.r(u),t.d(u,{default:()=>o});const o={abRouter:{vueRouter:"vueRouter",jsDomRouter:"jsDomRouter"}}}}]);
