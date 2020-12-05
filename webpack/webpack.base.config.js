@@ -78,6 +78,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       fileName: 'index.html',
       template: 'public/index.html',
+      favicon: 'public/favicon.ico',
       inject: 'body',
       title: 'DOTA2 hreo bp',
       minify: {
