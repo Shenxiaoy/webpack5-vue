@@ -79,7 +79,7 @@ module.exports = {
       fileName: 'index.html',
       template: 'public/index.html',
       inject: 'body',
-      title: 'webpack5 config',
+      title: 'DOTA2 hreo bp',
       minify: {
         removeComments: true, // 去掉注释
         collapseWhitespace: true // 去掉空格
