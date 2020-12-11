@@ -8,20 +8,7 @@ const { ModuleFederationPlugin } = require('webpack').container
 const prodConfig = merge(baseConfig, {
   mode: 'production',
   plugins: [
-    new CleanWebpackPlugin(),
-    new ModuleFederationPlugin({
-      filename: 'commont.js',
-      name: 'bsadmin',
-      // library: {type: 'var', name: 'app1'},
-      exposes: {
-        './commont': path.resolve(__dirname, '../src/components/test.js')
-      },
-      shared: {
-        vue: {
-          singleton: true
-        }
-      }
-    })
+    new CleanWebpackPlugin()
   ]
 })
 

@@ -17,19 +17,19 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
-    filename: isDeveopment ? 'app.js' : '[hash:8].app.js'
+    filename: isDeveopment ? 'app.js' : 'ert.[hash:8].huskar.js'
   },
   module: {
     rules: [
-      {
-        test: /\.(js|vue)$/,
-        loader: 'eslint-loader',
-        enforce: 'pre',
-        exclude: /node_modules/,
-        options: {
-          formatter: require('eslint-friendly-formatter')
-        }
-      },
+      // {
+      //   test: /\.(js|vue)$/,
+      //   loader: 'eslint-loader',
+      //   enforce: 'pre',
+      //   exclude: /node_modules/,
+      //   options: {
+      //     formatter: require('eslint-friendly-formatter')
+      //   }
+      // },
       {
         test: /\.js$/,
         loader: 'babel-loader'
@@ -87,22 +87,19 @@ module.exports = {
       }
     }),
     new MiniCssExtractPlugin(),
-    // new ModuleFederationPlugin({
-    //   filename: 'commont.js',
-    //   name: 'bsadmin',
-    //   // library: { type: 'var', name: 'bsadmin' },
-    //   exposes: {
-    //     './commont': path.resolve(__dirname, '../src/components/test.js')
-    //   },
-    //   // remotes: {
-    //   //   bsadmin: 'bsadmin@http://localhost:8080/commont.js'
-    //   // },
-    //   shared: {
-    //     vue: {
-    //       singleton: true
-    //     }
-    //   }
-    // })
+    new ModuleFederationPlugin({
+      filename: 'commont.js',
+      name: 'bsadmin',
+      library: { type: 'var', name: 'bsadmin' },
+      exposes: {
+        './commont': path.resolve(__dirname, '../src/components/test.js')
+      },
+      shared: {
+        vue: {
+          singleton: true
+        }
+      }
+    })
   ],
   resolve: {
     extensions: ['.js', '.vue', '.ts'],
