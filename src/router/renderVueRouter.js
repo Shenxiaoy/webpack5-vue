@@ -3,7 +3,6 @@ import Vue from 'vue'
 import App from '../App.vue'
 import addRouters from './exportRouters'
 function renderDom (routes = []) {
-  console.log('5555')
   addRouters.addRoutes(routes)
   new Vue({
     el: '#app',

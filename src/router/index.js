@@ -19,6 +19,8 @@ const routes = [
   }
 ]
 
-export default new VueRouter({
+const newRouter = new VueRouter({
   routes
 })
+
+export default newRouter

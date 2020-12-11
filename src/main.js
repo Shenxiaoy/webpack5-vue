@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
-import router from './router'
+// import router from './router/exportRouters'
 
-// eslint-disable-next-line no-new
+import test from '@/components/test'
+const router = test.routers
+
 new Vue({
   el: '#app',
   router,
