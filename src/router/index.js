@@ -4,23 +4,24 @@ import Home from '../views/home'
 import System from '../views/system'
 Vue.use(VueRouter)
 
-const routes = [
+export const routes = [
   {
     path: '/',
-    redirect: '/home'
+    redirect: '/home',
+    name: 'first'
   },
   {
     path: '/home',
-    component: Home
+    component: Home,
+    name: 'home'
   },
   {
     path: '/system',
-    component: System
+    component: System,
+    name: 'system'
   }
 ]
 
-const newRouter = new VueRouter({
+export const newRouter = new VueRouter({
   routes
 })
-
-export default newRouter

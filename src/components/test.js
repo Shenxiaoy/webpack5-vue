@@ -1,5 +1,5 @@
 import renderDom from '../router/renderVueRouter'
-import addRoutes from '../router/test'
+import addRoutes from '../router/addRoutes'
 import routers from '../router/exportRouters'
 export default {
   renderDom,

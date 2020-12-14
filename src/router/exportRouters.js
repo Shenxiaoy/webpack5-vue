@@ -1,6 +1,3 @@
-import newRouter from './index'
-// const addRouter = function (routes = []) {
-//   console.log(routes, '=====')
-//   newRouter.addRoutes(routes)
-// }
+import { newRouter } from './index'
+
 export default newRouter

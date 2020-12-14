@@ -1,12 +1,14 @@
 // import newRouter from './index'
 import Vue from 'vue'
 import App from '../App.vue'
-import addRouters from './exportRouters'
+import router from './exportRouters'
 function renderDom (routes = []) {
-  addRouters.addRoutes(routes)
+  console.log('import_main_1')
+  router.addRoutes(routes)
+  /* eslint-disable no-new */
   new Vue({
     el: '#app',
-    router: addRouters,
+    router,
     render: h => h(App)
   })
 }

@@ -21,15 +21,15 @@ module.exports = {
   },
   module: {
     rules: [
-      // {
-      //   test: /\.(js|vue)$/,
-      //   loader: 'eslint-loader',
-      //   enforce: 'pre',
-      //   exclude: /node_modules/,
-      //   options: {
-      //     formatter: require('eslint-friendly-formatter')
-      //   }
-      // },
+      {
+        test: /\.(js|vue)$/,
+        loader: 'eslint-loader',
+        enforce: 'pre',
+        exclude: /node_modules/,
+        options: {
+          formatter: require('eslint-friendly-formatter')
+        }
+      },
       {
         test: /\.js$/,
         loader: 'babel-loader'
