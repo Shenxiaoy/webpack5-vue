@@ -4,7 +4,7 @@ import Home from '../views/home'
 import System from '../views/system'
 Vue.use(VueRouter)
 
-export const routes = [
+const routes = [
   {
     path: '/',
     redirect: '/home',
@@ -22,6 +22,15 @@ export const routes = [
   }
 ]
 
-export const newRouter = new VueRouter({
+// const newRouter = new VueRouter({
+//   routes
+// })
+
+if (!window.newRouter) {
+  window.newRouter = new VueRouter({ routes })
+}
+export default {
+  newRouter: window.newRouter,
   routes
-})
+
+}

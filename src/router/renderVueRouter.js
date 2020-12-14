@@ -1,9 +1,8 @@
-// import newRouter from './index'
 import Vue from 'vue'
 import App from '../App.vue'
 import router from './exportRouters'
 function renderDom (routes = []) {
-  console.log('import_main_1')
+  console.log(router, 'import_main_1')
   router.addRoutes(routes)
   /* eslint-disable no-new */
   new Vue({
