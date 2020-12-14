@@ -8,7 +8,24 @@ const { ModuleFederationPlugin } = require('webpack').container
 const prodConfig = merge(baseConfig, {
   mode: 'production',
   plugins: [
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
+    new ModuleFederationPlugin({
+      name: 'stockt',
+      // library: { type: 'var', name: 'stockt' },
+      remotes: {
+        // stockM: 'bsadmin@http://localhost:8080/commont.js',
+        stockM: 'bsadmin@../public/test.js',
+      },
+      exposes: {
+
+      },
+      shared: {
+        vue: {
+          singleton: true,
+          import: false
+        }
+      }
+    })
   ]
 })
 

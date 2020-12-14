@@ -1,36 +1,12 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/home'
-import System from '../views/system'
-Vue.use(VueRouter)
+
+import System from '../views/home'
 
 const routes = [
   {
-    path: '/',
-    redirect: '/home',
-    name: 'first'
-  },
-  {
-    path: '/home',
-    component: Home,
-    name: 'home'
-  },
-  {
-    path: '/system',
+    path: '/one',
     component: System,
-    name: 'system'
+    name: 'one'
   }
 ]
 
-// const newRouter = new VueRouter({
-//   routes
-// })
-
-if (!window.newRouter) {
-  window.newRouter = new VueRouter({ routes })
-}
-export default {
-  newRouter: window.newRouter,
-  routes
-
-}
+export default routes

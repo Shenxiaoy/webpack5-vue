@@ -12,15 +12,12 @@
         </RotateCard>
         <RotateCard delayTime='0.8s'>
           <div class='choose-note'
-               @click="handleModule('note')">
+               @click="handlenote">
             <p style='font-size: 24px'>笔记</p>
             <div>好记性不如烂笔头</div>
           </div>
         </RotateCard>
-        <RotateCard delayTime='1.1s'>
-          <div class="choose-admin"
-               @click="handleModule('admin')"></div>
-        </RotateCard>
+        <RotateCard delayTime='1.1s'></RotateCard>
         <RotateCard delayTime='1.4s'></RotateCard>
       </div>
 
@@ -53,11 +50,8 @@
       <template v-else-if="curChoose.type === 'note'">
         <ChooseNote></ChooseNote>
       </template>
-      <template v-else-if="curChoose.type === 'admin'">
-        <ModuleAdmin></ModuleAdmin>
-      </template>
       <template v-else>
-        <HeroDescri></HeroDescri>
+        show-plant
       </template>
     </div>
   </div>
@@ -69,12 +63,10 @@ import ButEffect from '@/components/animation-effect/butEffect'
 import ChooseLogin from './choose-model/login'
 import OhterLogin from './choose-model/otherLogin'
 import ChooseNote from './choose-model/note'
-import ModuleAdmin from './choose-model/admin'
-import HeroDescri from './choose-model/heroDescri'
 
 import bgPlantImg from '@/assets/img/bg.jpg'
 export default {
-  components: { RotateCard, ButEffect, ChooseLogin, OhterLogin, ChooseNote, ModuleAdmin, HeroDescri },
+  components: { RotateCard, ButEffect, ChooseLogin, OhterLogin, ChooseNote },
   data () {
     return {
       curChoose: {
@@ -87,9 +79,9 @@ export default {
     loginIn () {
       this.curChoose.type = 'login'
     },
-    handleModule (type) {
+    handlenote () {
       this.curChoose = {
-        type
+        type: 'note'
       }
     },
     imgload (e) {
@@ -123,23 +115,10 @@ export default {
       .choose-note {
         text-align: center;
         cursor: pointer;
-        -webkit-text-stroke: 1px rgb(99, 94, 94);
-        color: black;
-        transition: all ease-out 0.5s;
         &:hover {
-          color: white;
-          -webkit-text-stroke: 0 white;
-        }
-      }
-      .choose-admin {
-        width: 100%;
-        height: 100%;
-        background-image: url("@/assets/img/admin-icon.svg");
-        background-size: cover;
-        cursor: pointer;
-        &:hover {
-          transition: all 0.8s;
-          transform: translateY(5%);
+          -webkit-text-stroke: 1px rgb(99, 94, 94);
+          color: black;
+          transition: all ease-out 0.8s;
         }
       }
     }

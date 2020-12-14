@@ -1,1 +1,0 @@
-(self.webpackChunkwebpack5=self.webpackChunkwebpack5||[]).push([[201],{201:(e,a,s)=>{"use strict";s.r(a),s.d(a,{default:()=>d});var t=s(475),u=s(227);const d={renderDom:t.Z,addRoutes:function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:[];u.Z.addRoutes(e)},routers:u.Z}}}]);

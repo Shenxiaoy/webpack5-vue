@@ -90,14 +90,13 @@ export default {
 <style lang='scss' scoped>
 .game-header {
   width: 100%;
-  background: url("https://chat.shenxiaoyu.cn/bg.gif") repeat;
-  user-select: none;
 }
 .header-wrap {
   width: 1100px;
   margin: 0 auto;
   height: 60px;
   min-width: 904px;
+  background: url("https://chat.shenxiaoyu.cn/bg.gif") repeat;
   display: flex;
   justify-content: space-between;
 

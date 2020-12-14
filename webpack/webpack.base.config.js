@@ -4,32 +4,32 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 // const ESLintPlugin = require('eslint-webpack-plugin')
-const { ModuleFederationPlugin } = require('webpack').container
 const isDeveopment = process.env.NODE_ENV === 'development'
 // const eslintConfig = {
 //   formatter: require('eslint-friendly-formatter'),
 //   emitWarning: true,
 //   fix: true
 // }
+const pahtFader = path.resolve(__dirname, '../public/commont.js')
 module.exports = {
   entry: {
     app: path.resolve(__dirname, '../src/index.js')
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
-    filename: isDeveopment ? 'app.js' : 'ert.[hash:8].huskar.js'
+    filename: isDeveopment ? 'app.js' : 'ert[hash:8].app.js'
   },
   module: {
     rules: [
-      {
-        test: /\.(js|vue)$/,
-        loader: 'eslint-loader',
-        enforce: 'pre',
-        exclude: /node_modules/,
-        options: {
-          formatter: require('eslint-friendly-formatter')
-        }
-      },
+      // {
+      //   test: /\.(js|vue)$/,
+      //   loader: 'eslint-loader',
+      //   enforce: 'pre',
+      //   exclude: /node_modules/,
+      //   options: {
+      //     formatter: require('eslint-friendly-formatter')
+      //   }
+      // },
       {
         test: /\.js$/,
         loader: 'babel-loader'
@@ -78,28 +78,14 @@ module.exports = {
     new HtmlWebpackPlugin({
       fileName: 'index.html',
       template: 'public/index.html',
-      favicon: 'public/favicon.ico',
       inject: 'body',
-      title: 'DOTA2 hreo bp',
+      title: 'webpack5 config',
       minify: {
         removeComments: true, // 去掉注释
         collapseWhitespace: true // 去掉空格
       }
     }),
     new MiniCssExtractPlugin(),
-    new ModuleFederationPlugin({
-      filename: 'commont.js',
-      name: 'bsadmin',
-      library: { type: 'var', name: 'bsadmin' },
-      exposes: {
-        './commont': path.resolve(__dirname, '../src/components/test.js')
-      },
-      shared: {
-        vue: {
-          singleton: true
-        }
-      }
-    })
   ],
   resolve: {
     extensions: ['.js', '.vue', '.ts'],

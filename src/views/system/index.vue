@@ -1,8 +1,5 @@
 <template>
-  <div class="system-obj">
-    <p>system-main</p>
-    <div>{{gg.vueRouter}}</div>
-  </div>
+  <div class="system-obj">system1111111111</div>
 </template>
 
 <script>
@@ -10,17 +7,12 @@ import './system.scss'
 export default {
   data () {
     return {
-      gg: {}
+      ori: ''
     }
   },
-  mounted () {
-    // const test = window.aaaaqq
-    // const aa = test.get('./commont')
-    // aa.then(json => {
-    //   const result = json().default
-    //   this.gg = result.abRouter
-    //   console.log(result, 'gg')
-    // })
+  async mounted () {
+    const a = await Promise.resolve('3')
+    console.log(a, 'aaaaaaaaaaa')
   }
 }
 </script>
